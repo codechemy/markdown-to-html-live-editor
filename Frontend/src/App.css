@@ -1,0 +1,136 @@
+:root {
+  --primary-font: "Arial", sans-serif;
+  --bg-color: #cfcfbc;
+  --container-bg: #efece7;
+  --box-shadow-color: rgba(0, 0, 0, 0.1);
+  --border-radius: 0.8rem;
+  --heading-font-size: 1.5rem;
+  --button-font-size: 0.875rem;
+  --button-transition: all ease-in-out 200ms;
+  --button-bg-color: #3eb3ce;
+  --button-text-color: #ffffff;
+  --button-hover-bg: #ffffff;
+  --button-hover-text: #3eb3ce;
+  --scrollbar-width: 0.4rem;
+  --container-padding: 2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--primary-font);
+  background-color: var(--bg-color);
+}
+
+.mdml--container {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--container-bg);
+  padding: var(--container-padding);
+  box-shadow: 0 0 1rem var(--box-shadow-color);
+  border-radius: var(--border-radius);
+}
+
+.mdml--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.mdml--textarea__container,
+.mdml--preview__container {
+  width: 50%;
+}
+
+h2#mdml {
+  font-size: var(--heading-font-size);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.mdml--textarea,
+.mdml--preview {
+  height: 80vh;
+  width: 100%;
+  max-height: 100vh;
+  overflow-y: scroll;
+  padding: 1rem;
+  border: 0.1rem solid #ccc;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color);
+}
+
+.mdml--textarea::-webkit-scrollbar,
+.mdml--preview::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+.mdml--textarea::-webkit-scrollbar-thumb,
+.mdml--preview::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.mdml--textarea {
+  outline: none;
+}
+
+.mdml--button {
+  outline: none;
+  display: inline-block;
+  border: none;
+  width: 25%;
+  padding: 0.75rem;
+  border-radius: var(--border-radius);
+  margin-top: 0.5rem;
+  color: var(--button-text-color);
+  background-color: var(--button-bg-color);
+  font-size: var(--button-font-size);
+  cursor: pointer;
+  transition: var(--button-transition);
+}
+
+.mdml--button:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+}
+
+.preview--buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+@media (max-width: 60.75rem) {
+  .mdml--wrapper {
+    flex-direction: column;
+    height: 95%;
+    gap: 0;
+  }
+
+  .mdml--textarea__container,
+  .mdml--preview__container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mdml--textarea,
+  .mdml--preview {
+    height: 80%;
+    width: 100%;
+    max-height: 50vh;
+  }
+
+  .mdml--button {
+    width: 35%;
+  }
+}
