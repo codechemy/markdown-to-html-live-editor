@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import io from "socket.io-client";
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
+import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import "./App.css";
 
 const socket = io("http://localhost:3001");
@@ -66,7 +68,11 @@ const App = () => {
         </section>
         <section className="mdml--preview__container">
           {showRawHTML ? (
-            <div className="mdml--preview">{html}</div>
+            <div className="mdml--preview">
+              <SyntaxHighlighter customStyle={{background:"transparent"}} language="html" style={docco}>
+                {html}
+              </SyntaxHighlighter>
+            </div>
           ) : (
             <div
               className="mdml--preview"
